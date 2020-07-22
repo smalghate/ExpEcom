@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormBuilder, Validators, FormControl, FormArray, NgForm } from '@angular/forms'
+import { from } from 'rxjs';
 @Component({
   selector: 'app-reimbursement-screen',
   templateUrl: './reimbursement-screen.component.html',
@@ -8,25 +9,21 @@ import { FormGroup, FormBuilder, Validators, FormControl, FormArray, NgForm } fr
 })
 export class ReimbursementScreenComponent implements OnInit {
 
-  addForm: FormGroup;
-
-  rows: FormArray;
   itemForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
 
-    this.addForm = this.fb.group({
-      items: [null, Validators.required],
-      items_value: ['no', Validators.required]
-    });
-
-    this.rows = this.fb.array([]);
-
   }
+  addForm = this.fb.group({
+    amt: ['', Validators.required],
+    form: ['', Validators.required],
+    to: ['', Validators.required],
+    purpose: ['', Validators.required],
+    mode: ['', Validators.required],
+  });
 
+  rows = this.fb.array([]);
   ngOnInit() {
-  
-        // this.addForm.get("items_value").setValue("yes");
         this.addForm.addControl('rows', this.rows);
   }
 
@@ -37,10 +34,22 @@ export class ReimbursementScreenComponent implements OnInit {
   createItemFormGroup(): FormGroup {
     return this.fb.group({
       from: null,
+      km:null,
       to: null,
+      invNo:null,
       purpose: null,
+      amt:null,
       mode:null,
     });
   }
 
+  setvalidate(){
+    if ((this.addForm.value != '')) {
+      //TODO
+     
+    }else{
+       //TODO
+     
+    }
+  }
 }

@@ -2,7 +2,7 @@
   <h5 class="card-header">Reimburesment-Module</h5>
   <div class="jumbotron">
     <div class="container">
-      <div class="col-md-12" [formGroup]="addForm">
+      <div class="col-md-12" [formGroup]="addForm" >
         <div class="m-auto col-md-4">
           <div class="form-group">
             <label>Select Month</label>
@@ -27,40 +27,52 @@
           <div class="row">
             <div class="col-md-4">
               <div class="custom-control custom-radio">
-                <input type="radio" id="conveyance" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">Conveyance</label>
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosConveyance" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                  Conveyance
+                </label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="custom-control custom-radio">
-                <input type="radio" id="hotel" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">Hotel </label>
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosHotel" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                  Hotel
+                </label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="custom-control custom-radio">
-                <input type="radio" id="food" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">Food </label>
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosFood" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                  Food
+                </label>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
               <div class="custom-control custom-radio">
-                <input type="radio" id="mobile" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">Mobile </label>
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosMobile" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                  Mobile
+                </label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="custom-control custom-radio">
-                <input type="radio" id="internet" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">Internet </label>
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosInternet" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                  Internet
+                </label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="custom-control custom-radio">
-                <input type="radio" id="others" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">Others </label>
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosOthers" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                  Others
+                </label>
               </div>
             </div>
           </div>
@@ -70,7 +82,7 @@
           <div class="col-md-3">
             <div class="row mb-3">
               <div class="col-md-4">From :</div>
-              <div class="col-md-8"><input [formControl]="row.get('from')"></div>
+              <div class="col-md-8"><input [formControl]="row.get('from')" required></div>
             </div>
             <div class="row mb-3">
               <div class="col-md-4">Km :</div>

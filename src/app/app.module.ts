@@ -7,8 +7,9 @@ import { ReimbursementScreenComponent } from './reimbursement-screen/reimburseme
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputScreenHotelComponent } from './input-screen-hotel/input-screen-hotel.component';
-//import { MatDatepickerModule, MatInputModule, MatNativeDateModule } from '@angular/material';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatInputModule} from  '@angular/material/input';
+import {MatNativeDateModule} from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,10 +21,10 @@ import { InputScreenHotelComponent } from './input-screen-hotel/input-screen-hot
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
-    //MatInputModule,
-    //MatDatepickerModule,
-    //MatNativeDateModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

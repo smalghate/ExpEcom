@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl, FormArray, NgForm } from '@angular/forms'
 
-
 @Component({
   selector: 'app-input-screen-hotel',
   templateUrl: './input-screen-hotel.component.html',
@@ -27,7 +26,6 @@ export class InputScreenHotelComponent implements OnInit {
 
   ngOnInit() {
   
-        // this.addForm.get("items_value").setValue("yes");
         this.addForm.addControl('rows', this.rows);
   }
 

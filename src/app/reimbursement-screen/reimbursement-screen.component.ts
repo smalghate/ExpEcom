@@ -44,12 +44,6 @@ export class ReimbursementScreenComponent implements OnInit {
   }
 
   setvalidate(){
-   if(this.rows.value.invNo == null){
-    alert("inv no cannot be null")
-   }
-  //  }else{
-  //    console.log("else");
-     
-  //  }
+   // TO do
   }
 }

@@ -9,19 +9,11 @@ import { from } from 'rxjs';
 })
 export class ReimbursementScreenComponent implements OnInit {
 
-  itemForm: FormGroup;
+  addForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-
+  constructor(private fb: FormBuilder) {  
   }
-  addForm = this.fb.group({
-    amt: ['', Validators.required],
-    form: ['', Validators.required],
-    to: ['', Validators.required],
-    purpose: ['', Validators.required],
-    mode: ['', Validators.required],
-  });
-
+  
   rows = this.fb.array([]);
   ngOnInit() {
         this.addForm.addControl('rows', this.rows);
@@ -44,12 +36,7 @@ export class ReimbursementScreenComponent implements OnInit {
   }
 
   setvalidate(){
-    if ((this.addForm.value != '')) {
-      //TODO
-     
-    }else{
-       //TODO
-     
-    }
+   // to do save
+
   }
 }

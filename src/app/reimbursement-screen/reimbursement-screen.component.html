@@ -78,7 +78,7 @@
             </div>
           </div>
         </div>
-        
+        <br>
         <div class="row" *ngFor="let row of addForm.get('rows')?.controls;let index = index;">
           <div class="col-md-3">
             <div class="row mb-3">
@@ -145,6 +145,7 @@
               </div>
             </div>
           </div>
+          <hr style="width:90%">
         </div>
         <div class="mt-3">
           <input type="button" (click)="onAddRow()" value="add row" *ngIf="addForm.get('rows')" class="btn btn-primary float-right">
@@ -156,3 +157,4 @@
     </div>
   </div>
 </div>
+<pre>{{rows.value | json}}</pre>

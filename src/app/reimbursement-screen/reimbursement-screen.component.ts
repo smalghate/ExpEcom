@@ -11,7 +11,15 @@ export class ReimbursementScreenComponent implements OnInit {
 
   addForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {  
+  constructor(private fb: FormBuilder) {
+    this.addForm = this.fb.group({
+      amt: ['', Validators.required],
+      form: ['', Validators.required],
+      to: ['', Validators.required],
+      purpose: ['', Validators.required],
+      mode: ['', Validators.required],
+    });
+  
   }
   
   rows = this.fb.array([]);
@@ -36,7 +44,12 @@ export class ReimbursementScreenComponent implements OnInit {
   }
 
   setvalidate(){
-   // to do save
-
+   if(this.rows.value.invNo == null){
+    alert("inv no cannot be null")
+   }
+  //  }else{
+  //    console.log("else");
+     
+  //  }
   }
 }

@@ -18,12 +18,13 @@ export class InputScreenHotelComponent implements OnInit {
       purpose: ['', Validators.required],
       mode: ['', Validators.required],
       fromDatePicker: ['', Validators.required],
-      toDatePicker: ['', Validators.required]
+      toDatePicker: ['', Validators.required],
     });
 
   }
 
   rows = this.fb.array([]);
+
   ngOnInit() {
     this.addForm.addControl('rows', this.rows);
     this.addForm.patchValue({
@@ -51,4 +52,7 @@ export class InputScreenHotelComponent implements OnInit {
     // TODO
   }
 
+  changeRadioOption(event) {
+    console.log(event.target.value);
+  }
 }

@@ -10,23 +10,26 @@ export class InputScreenHotelComponent implements OnInit {
 
   addForm: FormGroup;
 
-  rows: FormArray;
-  itemForm: FormGroup;
-
   constructor(private fb: FormBuilder) {
-
     this.addForm = this.fb.group({
-      items: [null, Validators.required],
-      items_value: ['no', Validators.required]
+      amt: ['', Validators.required],
+      form: ['', Validators.required],
+      to: ['', Validators.required],
+      purpose: ['', Validators.required],
+      mode: ['', Validators.required],
+      fromDatePicker: ['', Validators.required],
+      toDatePicker: ['', Validators.required]
     });
-
-    this.rows = this.fb.array([]);
 
   }
 
+  rows = this.fb.array([]);
   ngOnInit() {
-  
-        this.addForm.addControl('rows', this.rows);
+    this.addForm.addControl('rows', this.rows);
+    this.addForm.patchValue({
+      fromDatePicker: Date.now(),
+      toDatePicker: Date.now()
+    });
   }
 
   onAddRow() {
@@ -35,11 +38,17 @@ export class InputScreenHotelComponent implements OnInit {
 
   createItemFormGroup(): FormGroup {
     return this.fb.group({
-      from: null,
-      to: null,
+      km: null,
+      invNo: null,
       purpose: null,
-      mode:null,
+      amt: null,
+      toDatePicker: [''],
+      fromDatePicker: [''],
     });
+  }
+
+  setvalidate() {
+    // TODO
   }
 
 }

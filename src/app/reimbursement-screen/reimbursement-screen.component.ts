@@ -46,4 +46,8 @@ export class ReimbursementScreenComponent implements OnInit {
   setvalidate(){
    // TO do
   }
+
+  changeRadioOption(event) {
+    console.log(event.target.value);
+  }
 }

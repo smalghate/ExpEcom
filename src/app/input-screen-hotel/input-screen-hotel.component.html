@@ -2,149 +2,145 @@
   <h5 class="card-header">Reimburesment-Module Hotel</h5>
   <div class="jumbotron">
     <div class="container">
-      <form action=""  method="post" (ngSubmit)="setvalidate()" ngNativeValidate>
-      <div class="col-md-12" [formGroup]="addForm" >
-        <div class="m-auto col-md-4">
-          <div class="form-group">
-            <label>Select Month</label>
-            <select class="browser-default custom-select mb-4">
-              <option value="" disabled>Choose option</option>
-              <option value="1" selected>Jan</option>
-              <option value="2">Feb</option>
-              <option value="3">Mar</option>
-              <option value="4">Apr</option>
-              <option value="4">may</option>
-              <option value="4">Jun</option>
-              <option value="4">Jul</option>
-              <option value="4">Aug</option>
-              <option value="4">Sep</option>
-              <option value="4">Oct</option>
-              <option value="4">Nov</option>
-              <option value="4">Dec</option>
-            </select>
+      <form action="" method="post" (ngSubmit)="setvalidate()" ngNativeValidate>
+        <div class="col-md-12" [formGroup]="addForm">
+          <div class="m-auto col-md-4">
+            <div class="form-group">
+              <label>Select Month</label>
+              <select class="browser-default custom-select mb-4">
+                <option value="" disabled>Choose option</option>
+                <option value="1" selected>Jan</option>
+                <option value="2">Feb</option>
+                <option value="3">Mar</option>
+                <option value="4">Apr</option>
+                <option value="4">may</option>
+                <option value="4">Jun</option>
+                <option value="4">Jul</option>
+                <option value="4">Aug</option>
+                <option value="4">Sep</option>
+                <option value="4">Oct</option>
+                <option value="4">Nov</option>
+                <option value="4">Dec</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 m-auto">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="custom-control custom-radio">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosConveyance"
+                    value="Conveyance" (change)="changeRadioOption($event)">
+                  <label class="form-check-label" for="gridRadios2">
+                    Conveyance
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="custom-control custom-radio">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosHotel" value="Hotel"
+                    (change)="changeRadioOption($event)">
+                  <label class="form-check-label" for="gridRadios2">
+                    Hotel
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="custom-control custom-radio">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosFood" value="Food"
+                    (change)="changeRadioOption($event)">
+                  <label class="form-check-label" for="gridRadios2">
+                    Food
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="custom-control custom-radio">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosMobile" value="Mobile"
+                    (change)="changeRadioOption($event)">
+                  <label class="form-check-label" for="gridRadios2">
+                    Mobile
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="custom-control custom-radio">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosInternet"
+                    value="Internet" (change)="changeRadioOption($event)">
+                  <label class="form-check-label" for="gridRadios2">
+                    Internet
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="custom-control custom-radio">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosOthers" value="Others"
+                    (change)="changeRadioOption($event)">
+                  <label class="form-check-label" for="gridRadios2">
+                    Others
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row" *ngFor="let row of addForm.get('rows')?.controls;let index = index;">
+            <div class="col-md-3">
+              <div class="row mb-3">
+                <div class="col-md-4">From Date:</div>
+                <mat-form-field appearance="fill">
+                  <mat-label>From date</mat-label>
+                  <input matInput [matDatepicker]="fromDatePicker" [formControl]="row.get('fromDatePicker')" required>
+                  <mat-datepicker-toggle matSuffix [for]="fromDatePicker"></mat-datepicker-toggle>
+                  <mat-datepicker #fromDatePicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-4">Km :</div>
+                <div class="col-md-8"><input [formControl]="row.get('km')"></div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="row mb-3">
+                <div class="col-md-4">To Date:</div>
+                <mat-form-field appearance="fill">
+                  <mat-label>To date</mat-label>
+                  <input matInput [matDatepicker]="toDatePicker" [formControl]="row.get('toDatePicker')" required>
+                  <mat-datepicker-toggle matSuffix [for]="toDatePicker"></mat-datepicker-toggle>
+                  <mat-datepicker #toDatePicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-4">InvNo :</div>
+                <div class="col-md-8"><input [formControl]="row.get('invNo')"></div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="row mb-3">
+                <div class="col-md-4">Purpose :</div>
+                <div class="col-md-8">
+                  <select #select (change)="showValue($event)" [formControl]="row.get('purpose')" required>
+                    <option *ngFor="let ls of listOptions" [value]="ls.id">{{ls.label}}</option>
+                  </select>
+                  <input type="text" *ngIf="select.value == 5" [formControl]="row.get('otherInput')">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-4">Amt :</div>
+                <div class="col-md-8"><input [formControl]="row.get('amt')" required></div>
+              </div>
+            </div>
+            <hr style="width:90%">
+          </div>
+          <div class="mt-3">
+            <input type="button" (click)="onAddRow()" value="add row" *ngIf="addForm.get('rows')"
+              class="btn btn-primary float-right">
+
           </div>
         </div>
-        <div class="col-md-6 m-auto" >
-          <div class="row">
-            <div class="col-md-4">
-              <div class="custom-control custom-radio">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosConveyance"
-                 value="Conveyance" (change)="changeRadioOption($event)" >
-                <label class="form-check-label" for="gridRadios2">
-                  Conveyance
-                </label>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="custom-control custom-radio">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosHotel" 
-                value="Hotel" (change)="changeRadioOption($event)">
-                <label class="form-check-label" for="gridRadios2">
-                  Hotel
-                </label>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="custom-control custom-radio">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosFood" 
-                value="Food" (change)="changeRadioOption($event)">
-                <label class="form-check-label" for="gridRadios2">
-                  Food
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="custom-control custom-radio">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosMobile" 
-                value="Mobile" (change)="changeRadioOption($event)">
-                <label class="form-check-label" for="gridRadios2">
-                  Mobile
-                </label>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="custom-control custom-radio">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosInternet" 
-                value="Internet" (change)="changeRadioOption($event)">
-                <label class="form-check-label" for="gridRadios2">
-                  Internet
-                </label>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="custom-control custom-radio">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadiosOthers" 
-                value="Others" (change)="changeRadioOption($event)">
-                <label class="form-check-label" for="gridRadios2">
-                  Others
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br>
-        <div class="row" *ngFor="let row of addForm.get('rows')?.controls;let index = index;">
-          <div class="col-md-3">
-            <div class="row mb-3">
-              <div class="col-md-4">From Date:</div>
-              <mat-form-field appearance="fill">
-                <mat-label>From date</mat-label>
-                <input matInput [matDatepicker]="fromDatePicker" [formControl] = "row.get('fromDatePicker')" required>
-                <mat-datepicker-toggle matSuffix [for]="fromDatePicker"></mat-datepicker-toggle>
-                <mat-datepicker #fromDatePicker></mat-datepicker>
-              </mat-form-field>
-            </div>
-            <div class="row mb-3">
-              <div class="col-md-4">Km :</div>
-              <div class="col-md-8"><input [formControl]="row.get('km')"></div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="row mb-3">
-              <div class="col-md-4">To Date:</div>
-              <mat-form-field appearance="fill">
-                <mat-label>To date</mat-label>
-                <input matInput [matDatepicker]="toDatePicker" [formControl] = "row.get('toDatePicker')" required>
-                <mat-datepicker-toggle matSuffix [for]="toDatePicker"></mat-datepicker-toggle>
-                <mat-datepicker #toDatePicker></mat-datepicker>
-              </mat-form-field>
-            </div>
-            <div class="row mb-3">
-              <div class="col-md-4">InvNo :</div>
-              <div class="col-md-8"><input [formControl]="row.get('invNo')"></div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="row mb-3">
-              <div class="col-md-4">Purpose :</div>
-              <div class="col-md-8">
-                <select [formControl]="row.get('purpose')" required>
-                  <option selected>Choose..</option>
-                  <option value="1" selected>Market Visit</option>
-                  <option value="2">Other City Travel</option>
-                  <option value="3">Office Visit</option>
-                  <option value="4">Training</option>
-                  <option value="4">Others</option>
-                  <option>...</option>
-                </select>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-md-4">Amt :</div>
-              <div class="col-md-8"><input [formControl]="row.get('amt')" required></div>
-            </div>
-          </div>
-          <hr style="width:90%">
-        </div>
-        <div class="mt-3">
-          <input type="button" (click)="onAddRow()" value="add row" *ngIf="addForm.get('rows')" class="btn btn-primary float-right">
-         
-        </div>
-      </div>
-      <input type="submit" value="submit">
-    </form>
+        <input type="submit" value="submit">
+      </form>
     </div>
   </div>
 </div>

@@ -18,33 +18,91 @@ export class ReimbursementScreenComponent implements OnInit {
       to: ['', Validators.required],
       purpose: ['', Validators.required],
       mode: ['', Validators.required],
+      otherInputMode: ['', Validators.required],
+      otherInputPurpose: ['', Validators.required]
     });
-  
-  }
-  
-  rows = this.fb.array([]);
-  ngOnInit() {
-        this.addForm.addControl('rows', this.rows);
+
   }
 
-  onAddRow() {
-    this.rows.push(this.createItemFormGroup());
+  rows = this.fb.array([]);
+  ngOnInit() {
+    this.addForm.addControl('rows', this.rows);
   }
 
   createItemFormGroup(): FormGroup {
     return this.fb.group({
       from: null,
-      km:null,
+      km: null,
       to: null,
-      invNo:null,
+      invNo: null,
       purpose: null,
-      amt:null,
-      mode:null,
+      amt: null,
+      mode: null,
+      otherInputMode: null,
+      otherInputPurpose: null
     });
   }
+  listOptionsPurpose = [
+    {
+      'id': '1',
+      'label': 'Market Visit'
+    },
+    {
+      'id': '2',
+      'label': 'Other City Travel'
+    },
+    {
+      'id': '3',
+      'label': 'office Visit'
+    },
+    {
+      'id': '4',
+      'label': 'Training'
+    },
+    {
+      'id': '5',
+      'label': 'Other'
+    }
+  ];
+  listOptionsMode = [
+    {
+      'id': '1',
+      'label': 'Bike'
+    },
+    {
+      'id': '2',
+      'label': 'Bus'
+    },
+    {
+      'id': '3',
+      'label': 'Taxi'
+    },
+    {
+      'id': '4',
+      'label': 'Train'
+    },
+    {
+      'id': '5',
+      'label': 'Auto'
+    },
+    {
+      'id': '6',
+      'label': 'Others'
+    }
+  ];
+  selectedId: number;
+  showValue(event) {
+    this.selectedId = event;
+  }
 
-  setvalidate(){
-   // TO do
+
+  onAddRow() {
+    this.rows.push(this.createItemFormGroup());
+  }
+
+
+  setvalidate() {
+    // TO do
   }
 
   changeRadioOption(event) {

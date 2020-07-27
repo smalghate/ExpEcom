@@ -32,11 +32,6 @@ export class InputScreenHotelComponent implements OnInit {
       toDatePicker: Date.now()
     });
   }
-
-  onAddRow() {
-    this.rows.push(this.createItemFormGroup());
-  }
-
   createItemFormGroup(): FormGroup {
     return this.fb.group({
       km: null,
@@ -45,7 +40,39 @@ export class InputScreenHotelComponent implements OnInit {
       amt: null,
       toDatePicker: [''],
       fromDatePicker: [''],
+      otherInput: null,
     });
+  }
+  listOptions = [
+    {
+      'id': '1',
+      'label': 'Market Visit'
+    },
+    {
+      'id': '2',
+      'label': 'Other City Travel'
+    },
+    {
+      'id': '3',
+      'label': 'office Visit'
+    },
+    {
+      'id': '4',
+      'label': 'Training'
+    },
+    {
+      'id': '5',
+      'label': 'Other'
+    }
+  ];
+
+  selectedId: number;
+  showValue(event) {
+    this.selectedId = event;
+  }
+
+  onAddRow() {
+    this.rows.push(this.createItemFormGroup());
   }
 
   setvalidate() {

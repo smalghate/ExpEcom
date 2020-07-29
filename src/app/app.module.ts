@@ -10,11 +10,13 @@ import { InputScreenHotelComponent } from './input-screen-hotel/input-screen-hot
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatInputModule} from  '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
     ReimbursementScreenComponent,
-    InputScreenHotelComponent
+    InputScreenHotelComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

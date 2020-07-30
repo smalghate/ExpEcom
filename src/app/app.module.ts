@@ -11,6 +11,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatInputModule} from  '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
 import { RegisterComponent } from './register/register.component';
+import { HttpClientJsonpModule, HttpClient, HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,9 @@ import { RegisterComponent } from './register/register.component';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
